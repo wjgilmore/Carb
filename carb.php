@@ -1,0 +1,113 @@
+<?php
+
+require_once 'Console/CommandLine.php';
+
+$parser = new Console_CommandLine();
+$parser->description = 'A Fat-Free project generator.';
+$parser->version = '0.1.0';
+
+$generateCmd = $parser->addCommand('project', array(
+    'description' => 'Generate a new project'
+));
+
+$generateCmd->addArgument('name', array(
+    'description' => 'The project name'
+));
+
+$controllerCmd = $parser->addCommand('controller', array(
+    'description' => 'Create a new controller'
+));
+
+$controllerCmd->addArgument('name', array(
+    'description' => 'The controller name'
+));
+
+$actionCmd = $parser->addCommand('action', array(
+    'description' => 'Create a new controller action'
+));
+
+$routesCmd = $parser->addCommand('routes', array(
+    'description' => 'View a list of defined routes'
+));
+
+try {
+
+	$result = $parser->parse();
+
+	// Generate a new project
+	if ($result->command_name == 'project') {
+		
+		// TODO: Is Fat Free on PHP's include path?
+		
+		// Retrieve the project name
+		$projectName = $result->command->args['name'];
+		
+		if (file_exists($projectName)) {
+			
+			printf("The project directory {$projectName} already exists.\n");
+		
+		} else {
+			
+			// Create the project name
+			mkdir($projectName);
+			
+			// Create the asset directories
+			mkdir("{$projectName}/css/");
+			mkdir("{$projectName}/images/");
+			mkdir("{$projectName}/js/");
+			
+			// Create the configuration directory
+			mkdir("{$projectName}/config/");
+			copy(__DIR__ . '/templates/configuration.cfg', $projectName . '/config/configuration.cfg');
+			
+			// Create the front controller
+			copy(__DIR__ . '/templates/index.php', $projectName . '/index.php');
+			
+			// Create the controller directory
+			mkdir("{$projectName}/controllers/");
+
+			// Create the home and carb controllers
+			copy(__DIR__ . '/templates/home.php', $projectName . '/controllers/home.php');
+			copy(__DIR__ . '/templates/carb.php', $projectName . '/controllers/carb.php');
+			
+			
+			// Create the lib directory for third-party libraries
+			mkdir("{$projectName}/lib/");
+			
+			// Create the tests directory
+			mkdir("{$projectName}/tests/");
+			
+			// Create the mayo layout and home page
+			mkdir("{$projectName}/ui/");
+			copy(__DIR__ . '/templates/layout.html', $projectName . '/ui/layout.html');
+			copy(__DIR__ . '/templates/home.html', $projectName . '/ui/home.html');
+			
+			// Create the .htaccess file
+			copy(__DIR__ . '/templates/.htaccess', $projectName . '/.htaccess');
+			
+			
+			printf("Your project has been created. talk about adding path to apache here.");
+			
+		}
+		
+	// Create a new controller
+	} else if ($result->command_name == 'controller') {
+		
+		
+	// Create a new action and optionally an associated view
+	} else if ($result->command_name == 'action') {
+		
+		// Search for very last }
+		
+	// View a list of defined routes
+	} else if ($result->command_name == 'routes') {
+		
+		
+	}
+	
+} catch (Exception $exc) {
+
+	$parser->displayError($exc->getMessage());
+
+}
+
