@@ -56,7 +56,7 @@ Use the `--suppress` option to creation of the `index` action and associated vie
 
 ## License
 
-BSD? I have to do GPLv3, don't I?
+No clue. Need to look into implications associated with Fat-Free's use of GPLv3.
 
 ## About
 
