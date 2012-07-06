@@ -17,7 +17,7 @@ Save yourself a few extra steps and install `carb` by cloning its Git repository
 	$ git clone git@github.com:wjgilmore/carb.git
 	
 If you haven't yet availed yourself to the awesomeness that is Git and GitHub, then you
-can download a zip file.
+can download a zip file by clicking the `ZIP` button located at the top of the project's GitHub repository page.
 	
 Then add `carb` to your PHP `include_path`. Open your `php.ini` file, and locate the `include_path` directive. Add
 the path to the newly downloaded `carb` directory, as demonstrated here:
