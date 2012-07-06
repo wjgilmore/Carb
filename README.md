@@ -30,9 +30,9 @@ Finally, add `carb` to your system path. The process varies according to your op
 
 ## Running the `carb` CLI
 
-To learn more about what `carb` can do, execute it from a terminal:
+To learn more about what `carb` can do, execute the following command:
 
-	$ php carb
+	$ php carb --help
 
 ## Creating a New Fat-Free Project
 
