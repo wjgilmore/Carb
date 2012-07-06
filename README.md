@@ -26,32 +26,32 @@ the path to the newly downloaded `carb` directory, as demonstrated here:
 
 Don't forget to restart Apache after saving `php.ini`.
 
-Finally, add `carb` to your system path. The process varies according to your operating system.
+Make sure the `carb` executable is indeed executable per your filesystem's permissions. Finally, add `carb` to your system path. The process varies according to your operating system. If PHP is installed anywhere other than `/usr/bin/php` then you'll need to update the shebang at the top of the `carb` executable.
 
 ## Running the `carb` CLI
 
 To learn more about what `carb` can do, execute the following command:
 
-	$ php carb --help
+	$ carb --help
 
 ## Creating a New Fat-Free Project
 
-	$ php carb project local.wjgilmore.com
+	$ carb project local.wjgilmore.com
 	TODO
 
 ## Creating a Project Controller
 
-	$ php carb controller Account
+	$ carb controller Account
 	TODO
 
 Use the `--suppress` option to creation of the `index` action and associated view:
 
-	$ php carb controller Account --suppress
+	$ carb controller Account --suppress
 	TODO
 
 ### Creating a Controller Action
 
-	$ php carb action Account login
+	$ carb action Account login
 	TODO
 
 ## License
@@ -70,4 +70,3 @@ No clue. Need to look into implications associated with Fat-Free's use of GPLv3.
 Want to report a bug? Post an issue to `carb`'s [GitHub issue tracker](https://github.com/wjgilmore/Carb/issues). Want to 
 contribute a cool new feature or fix a bug? Send me a pull request.
 
-## TODO
