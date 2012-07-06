@@ -1,3 +1,5 @@
+#!/usr/bin/php
+
 <?php
 
 require_once 'Console/CommandLine.php';
