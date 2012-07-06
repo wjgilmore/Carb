@@ -14,7 +14,7 @@ to generate your own Fat-Free projects, give `carb` a try and [send me your feed
 
 Save yourself a few extra steps and install `carb` by cloning its Git repository:
 
-	$ git git@github.com:wjgilmore/carb.git
+	$ git clone git@github.com:wjgilmore/carb.git
 	
 If you haven't yet availed yourself to the awesomeness that is Git and GitHub, then you
 can download a zip file.
